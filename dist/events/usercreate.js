@@ -10,7 +10,7 @@ const handler = async (socket, _io) => {
         socket.once("RES_USERNAME", async (username, ign) => {
             if (await (0, database_1.databaseReadByUsername)(username)) {
                 socket.emit("ERR", "Username taken!");
-                rej(new Error("Username taken!"));
+                rej("Username taken!");
             }
             else if (!/^([a-z0-9]{2,16})$/i.test(username)) {
                 socket.emit("ERR", "Username must be an alphanumeric string between 2 and 16 characters!");
@@ -20,7 +20,7 @@ const handler = async (socket, _io) => {
                 (0, database_1.databaseWrite)(new Player_1.Player(username, token, socket.id, ign, 1));
                 res(token);
             }
-            return rej(new Error("Done."));
+            return rej("Done");
         });
         async function generateToken(n) {
             let chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
