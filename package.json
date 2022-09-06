@@ -1,29 +1,29 @@
 {
   "name": "prodigyirc",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Ingame chat for hackers in prodigy.",
   "main": "server.js",
   "scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1",
-	"start": "node server.js"
+    "prestart": "npx tsc",
+    "start": "node dist/server.js"
   },
   "repository": {
-	"type": "git",
-	"url": "git+https://github.com/Prodigy-Hacking/ProdigyIRC.git"
+    "type": "git",
+    "url": "git+https://github.com/ProdigyPNP/ProdigyIRC.git"
   },
-  "author": "Whimpers",
+  "author": "ProdigyPNP",
   "license": "ISC",
   "bugs": {
-	"url": "https://github.com/Prodigy-Hacking/ProdigyIRC/issues"
+    "url": "https://github.com/ProdigyPNP/ProdigyIRC/issues"
   },
-  "homepage": "https://github.com/Prodigy-Hacking/ProdigyIRC#readme",
+  "homepage": "https://github.com/ProdigyPNP/ProdigyIRC#readme",
   "dependencies": {
-	"express": "^4.17.1",
-	"socket.io": "^2.3.0"
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
-	"@types/express": "^4.17.7",
-	"@types/node": "^14.0.27",
-	"@types/socket.io": "^2.1.10"
+    "@types/express": "^4.17.7",
+    "@types/node": "^14.0.27",
+    "@types/socket.io": "^2.1.10"
   }
 }
