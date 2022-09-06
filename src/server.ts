@@ -2,10 +2,10 @@ import fs from "fs";
 import express from "express";
 import socket from "socket.io";
 import path from "path";
-import { handler as messageHandler } from "./events/message.js";
-import { handler as userJoinHandler } from "./events/userjoin.js";
-import { Command } from "./types/Command.js";
-import { temp } from "./temp.js";
+import { handler as messageHandler } from "./events/message";
+import { handler as userJoinHandler } from "./events/userjoin";
+import { Command } from "./types/Command";
+import { temp } from "./temp";
 
 const app = express();
 const http = require("http").Server(app);

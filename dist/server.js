@@ -30,9 +30,9 @@ const fs_1 = __importDefault(require("fs"));
 const express_1 = __importDefault(require("express"));
 const socket_io_1 = __importDefault(require("socket.io"));
 const path_1 = __importDefault(require("path"));
-const message_js_1 = require("./events/message.js");
-const userjoin_js_1 = require("./events/userjoin.js");
-const temp_js_1 = require("./temp.js");
+const message_1 = require("./events/message");
+const userjoin_1 = require("./events/userjoin");
+const temp_1 = require("./temp");
 const app = (0, express_1.default)();
 const http = require("http").Server(app);
 const io = (0, socket_io_1.default)(http);
@@ -57,15 +57,15 @@ fs_1.default.readdir(path_1.default.join(dir, "/commands/"), (err, files) => {
     console.log(`[Commands]\t Loaded ${jsfiles.length} commands!`);
 });
 io.on("connection", async (socket) => {
-    const player = await (0, userjoin_js_1.handler)(socket, io);
+    const player = await (0, userjoin_1.handler)(socket, io);
     socket.emit("LOGGED_IN", player);
     io.emit("CON", player.username, player.ign, player.privilege);
-    socket.on("MSG", (msg, token) => (0, message_js_1.handler)(socket, io, commands, token, msg));
+    socket.on("MSG", (msg, token) => (0, message_1.handler)(socket, io, commands, token, msg));
     socket.on("disconnect", () => {
         io.emit("DISCON", player.username, player.ign, player.privilege);
     });
 });
-(0, temp_js_1.temp)();
+(0, temp_1.temp)();
 http.listen(PORT, () => {
     console.log(`ProdigyIRC starting on port ${PORT}`);
 });
