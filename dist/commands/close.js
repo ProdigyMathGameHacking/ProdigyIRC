@@ -9,4 +9,3 @@ exports.help = {
         "/close roomid"
     ]
 };
-//# sourceMappingURL=close.js.map

@@ -28,20 +28,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const express_1 = __importDefault(require("express"));
-const app = (0, express_1.default)();
 const socket_io_1 = __importDefault(require("socket.io"));
-const path_1 = require("path");
-const http = require('http').Server(app);
-const io = (0, socket_io_1.default)(http);
+const path_1 = __importDefault(require("path"));
 const message_js_1 = require("./events/message.js");
 const userjoin_js_1 = require("./events/userjoin.js");
-const PORT = process.env.port ?? 3000;
+const app = (0, express_1.default)();
+const http = require("http").Server(app);
+const io = (0, socket_io_1.default)(http);
+const dir = __dirname;
+const PORT = (process.env.port) ? parseInt(process.env.port) : 3000;
 const commands = [];
 app.get("/", (_req, res) => {
-    res.sendFile(`${__dirname}/client/index.html`);
+    res.sendFile(path_1.default.resolve(dir, `/client/index.html`));
 });
-app.use("/", express_1.default.static((0, path_1.join)(__dirname, "./client")));
-fs_1.default.readdir("./commands/", (err, files) => {
+app.use("/", express_1.default.static(path_1.default.join(dir, "/client/")));
+fs_1.default.readdir(path_1.default.resolve(dir, "/dist/commands/"), (err, files) => {
     if (err)
         return console.error(err);
     const jsfiles = files.filter(f => f.split(".").pop() === "js");
@@ -66,4 +67,3 @@ io.on("connection", async (socket) => {
 http.listen(PORT, () => {
     console.log(`ProdigyIRC starting on port ${PORT}`);
 });
-//# sourceMappingURL=server.js.map

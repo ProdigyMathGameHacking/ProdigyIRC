@@ -27,4 +27,3 @@ exports.help = {
         "/ban username 1d"
     ]
 };
-//# sourceMappingURL=ban.js.map

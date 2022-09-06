@@ -1,1 +1,0 @@
-{"version":3,"file":"message.d.ts","sourceRoot":"","sources":["../../src/events/message.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAE,MAAM,EAAE,MAAM,WAAW,CAAC;AAC3C,OAAO,EAAE,OAAO,EAAE,MAAM,qBAAqB,CAAC;AAK9C,eAAO,MAAM,OAAO,WAAkB,MAAM,MAAM,MAAM,YAAY,OAAO,EAAE,SAAS,MAAM,OAAO,MAAM,iCAiBxG,CAAA"}

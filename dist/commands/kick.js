@@ -24,4 +24,3 @@ exports.help = {
         "/kick username"
     ]
 };
-//# sourceMappingURL=kick.js.map

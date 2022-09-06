@@ -1,1 +1,0 @@
-{"version":3,"file":"command.d.ts","sourceRoot":"","sources":["../../src/events/command.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAE,MAAM,EAAE,MAAM,WAAW,CAAC;AAC3C,OAAO,EAAE,OAAO,EAAE,MAAM,kBAAkB,CAAC;AAC3C,OAAO,EAAE,MAAM,EAAE,MAAM,iBAAiB,CAAC;AAGzC,eAAO,MAAM,OAAO,WAAkB,MAAM,MAAM,MAAM,YAAY,OAAO,EAAE,UAAU,MAAM,OAAO,MAAM,iCAezG,CAAA"}

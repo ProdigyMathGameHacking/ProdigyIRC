@@ -1,9 +1,0 @@
-export declare class Player {
-    username: string;
-    token: string;
-    ign: string;
-    privilege: number;
-    socketID: string;
-    constructor(username: string, token: string, socketID: string, ign: string, privilege: number);
-}
-//# sourceMappingURL=Player.d.ts.map

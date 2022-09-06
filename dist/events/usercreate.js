@@ -33,4 +33,3 @@ const handler = async (socket, _io) => {
     });
 };
 exports.handler = handler;
-//# sourceMappingURL=usercreate.js.map

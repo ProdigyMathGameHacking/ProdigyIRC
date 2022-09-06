@@ -11,4 +11,3 @@ class Player {
     }
 }
 exports.Player = Player;
-//# sourceMappingURL=Player.js.map

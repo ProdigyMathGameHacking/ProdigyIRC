@@ -40,4 +40,3 @@ const databaseUpdateByUsername = async (player, username) => {
     await fs_1.default.writeFileSync((0, path_1.join)(__dirname, "../../userbase.json"), JSON.stringify(database));
 };
 exports.databaseUpdateByUsername = databaseUpdateByUsername;
-//# sourceMappingURL=database.js.map

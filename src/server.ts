@@ -1,24 +1,26 @@
 import fs from "fs";
 import express from "express";
-const app = express();
 import socket from "socket.io";
-import { join } from "path";
-const http = require('http').Server(app);
-const io = socket(http);
+import path from "path";
 import { handler as messageHandler } from "./events/message.js";
 import { handler as userJoinHandler } from "./events/userjoin.js";
 import { Command } from "./types/Command.js";
 
-const PORT = process.env.port ?? 3000;
+const app = express();
+const http = require("http").Server(app);
+const io = socket(http);
+const dir : string = __dirname;
+
+const PORT : number = (process.env.port) ? parseInt(process.env.port) : 3000;
 
 const commands: Command[] = [];
 
 app.get("/", (_req, res) => {
-	res.sendFile(`${__dirname}/client/index.html`);
+	res.sendFile(path.resolve(dir, `/client/index.html`));
 });
-app.use("/", express.static(join(__dirname, "./client")));
+app.use("/", express.static(path.join(dir, "/client/")));
 
-fs.readdir("./commands/", (err, files) => {
+fs.readdir(path.resolve(dir, "/dist/commands/"), (err, files) => {
 	if (err) return console.error(err);
 
 	const jsfiles = files.filter(f => f.split(".").pop() === "js");

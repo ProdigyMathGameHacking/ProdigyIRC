@@ -20,4 +20,3 @@ exports.help = {
         "/tp teleporter teleportee"
     ]
 };
-//# sourceMappingURL=teleport.js.map

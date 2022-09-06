@@ -22,4 +22,3 @@ exports.help = {
         "/role username [0-3]"
     ]
 };
-//# sourceMappingURL=role.js.map

@@ -21,4 +21,3 @@ const handler = async (socket, io, commands, player, msg) => {
     }
 };
 exports.handler = handler;
-//# sourceMappingURL=command.js.map

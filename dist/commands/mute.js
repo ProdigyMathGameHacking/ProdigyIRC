@@ -26,4 +26,3 @@ exports.help = {
         "/mute username 1d"
     ]
 };
-//# sourceMappingURL=mute.js.map

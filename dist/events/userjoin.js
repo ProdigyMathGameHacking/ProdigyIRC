@@ -32,4 +32,3 @@ const handler = async (socket, io) => {
     });
 };
 exports.handler = handler;
-//# sourceMappingURL=userjoin.js.map

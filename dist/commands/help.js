@@ -25,4 +25,3 @@ exports.help = {
         "/help commandname"
     ]
 };
-//# sourceMappingURL=help.js.map
