@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.help = exports.run = void 0;
 const database_1 = require("../utils/database");
-const run = async (socket, io, player, args) => {
+const run = async (socket, _io, player, args) => {
     const username = args[0];
     const newPrivilege = +args[1];
     const user = await (0, database_1.databaseReadByUsername)(username);

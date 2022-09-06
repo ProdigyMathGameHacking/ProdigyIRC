@@ -1,8 +1,8 @@
 import { Server, Socket } from "socket.io";
 import { Player } from "../types/Player";
-import { databaseReadByUsername, databaseUpdateByUsername, databaseWrite } from "../utils/database";
+import { databaseReadByUsername, databaseUpdateByUsername } from "../utils/database";
 
-export const run = async (socket: Socket, io: Server, player: Player, args: string[]) => {
+export const run = async (socket: Socket, _io: Server, player: Player, args: string[]) => {
     const username = args[0]
     const newPrivilege = +args[1]
     const user = await databaseReadByUsername(username)

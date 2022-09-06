@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.help = exports.run = void 0;
 const privileges = require("../../privileges.json");
-const run = async (socket, io, commands, player, args) => {
+const run = async (socket, _io, commands, player, args) => {
     const commandName = args[0];
     if (commandName) {
         const command = commands.find(command => command.name == commandName);

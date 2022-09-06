@@ -37,7 +37,7 @@ const message_js_1 = require("./events/message.js");
 const userjoin_js_1 = require("./events/userjoin.js");
 const PORT = process.env.port ?? 3000;
 const commands = [];
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
     res.sendFile(`${__dirname}/client/index.html`);
 });
 app.use("/", express_1.default.static((0, path_1.join)(__dirname, "./client")));
@@ -48,7 +48,7 @@ fs_1.default.readdir("./commands/", (err, files) => {
     if (jsfiles.length <= 0) {
         return console.log("No commands to be loaded!");
     }
-    jsfiles.forEach(async (f, i) => {
+    jsfiles.forEach(async (f, _i) => {
         const props = await Promise.resolve().then(() => __importStar(require(`./commands/${f}`)));
         commands.push({ name: props.help?.name, props: props });
     });

@@ -2,7 +2,7 @@ import { Server, Socket } from "socket.io";
 import { Player } from "../types/Player";
 import { databaseReadByUsername, databaseReadByToken, databaseWrite } from "../utils/database";
 
-export const handler = async (socket: Socket, io: Server) => {
+export const handler = async (socket: Socket, _io: Server) => {
     return new Promise(async (res, rej) => {
         const token = await generateToken(32);
         socket.emit("REQ_USERNAME");

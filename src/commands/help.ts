@@ -3,7 +3,7 @@ import { Command } from "../types/Command";
 import { Player } from "../types/Player";
 const privileges = require("../../privileges.json");
 
-export const run = async (socket: Socket, io: Server, commands: Command[], player: Player, args: string[]) => {
+export const run = async (socket: Socket, _io: Server, commands: Command[], player: Player, args: string[]) => {
     const commandName = args[0]
 
     if (commandName) {

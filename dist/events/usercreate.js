@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.handler = void 0;
 const Player_1 = require("../types/Player");
 const database_1 = require("../utils/database");
-const handler = async (socket, io) => {
+const handler = async (socket, _io) => {
     return new Promise(async (res, rej) => {
         const token = await generateToken(32);
         socket.emit("REQ_USERNAME");
