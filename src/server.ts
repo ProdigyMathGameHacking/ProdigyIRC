@@ -16,11 +16,11 @@ const PORT : number = (process.env.port) ? parseInt(process.env.port) : 3000;
 const commands: Command[] = [];
 
 app.get("/", (_req, res) => {
-	res.sendFile(path.resolve(dir, `/client/index.html`));
+	res.sendFile(path.join(dir, `/client/index.html`));
 });
 app.use("/", express.static(path.join(dir, "/client/")));
 
-fs.readdir(path.resolve(dir, "/dist/commands/"), (err, files) => {
+fs.readdir(path.join(dir, "/commands/"), (err, files) => {
 	if (err) return console.error(err);
 
 	const jsfiles = files.filter(f => f.split(".").pop() === "js");
@@ -30,7 +30,7 @@ fs.readdir(path.resolve(dir, "/dist/commands/"), (err, files) => {
 	}
 
 	jsfiles.forEach(async(f, _i) => {
-		const props = await import(`./commands/${f}`);
+		const props = await import(path.join(dir, `/commands/${f}`));
 		commands.push({ name: props.help?.name, props: props });
 	});
 

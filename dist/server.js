@@ -39,10 +39,10 @@ const dir = __dirname;
 const PORT = (process.env.port) ? parseInt(process.env.port) : 3000;
 const commands = [];
 app.get("/", (_req, res) => {
-    res.sendFile(path_1.default.resolve(dir, `/client/index.html`));
+    res.sendFile(path_1.default.join(dir, `/client/index.html`));
 });
 app.use("/", express_1.default.static(path_1.default.join(dir, "/client/")));
-fs_1.default.readdir(path_1.default.resolve(dir, "/dist/commands/"), (err, files) => {
+fs_1.default.readdir(path_1.default.join(dir, "/commands/"), (err, files) => {
     if (err)
         return console.error(err);
     const jsfiles = files.filter(f => f.split(".").pop() === "js");
@@ -50,7 +50,7 @@ fs_1.default.readdir(path_1.default.resolve(dir, "/dist/commands/"), (err, files
         return console.log("No commands to be loaded!");
     }
     jsfiles.forEach(async (f, _i) => {
-        const props = await Promise.resolve().then(() => __importStar(require(`./commands/${f}`)));
+        const props = await Promise.resolve().then(() => __importStar(require(path_1.default.join(dir, `/commands/${f}`))));
         commands.push({ name: props.help?.name, props: props });
     });
     console.log(`[Commands]\t Loaded ${jsfiles.length} commands!`);
