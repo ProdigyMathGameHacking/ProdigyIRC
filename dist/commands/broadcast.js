@@ -9,3 +9,4 @@ exports.help = {
         "/broadcast msg roomid"
     ]
 };
+//# sourceMappingURL=broadcast.js.map

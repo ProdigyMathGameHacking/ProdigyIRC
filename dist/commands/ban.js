@@ -2,20 +2,21 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.help = exports.run = void 0;
 const database_1 = require("../utils/database");
-exports.run = async (socket, io, player, args) => {
+const run = async (socket, io, player, args) => {
     const username = args[0];
-    const user = await database_1.databaseReadByUsername(username);
+    const user = await (0, database_1.databaseReadByUsername)(username);
     if (!user)
         return socket.emit("ERR", "This user doesn't exist!");
     if (user.privilege >= player.privilege)
         return socket.emit("ERR", "Cannot ban a user with the same or higher rank!");
     user.privilege = -1;
-    database_1.databaseUpdateByUsername(user, username);
+    (0, database_1.databaseUpdateByUsername)(user, username);
     const userSocket = io.sockets.connected[user.socketID];
     userSocket?.emit("SYS", "You have been banned!");
     userSocket?.disconnect();
     socket.emit("SYS", `${username} was banned successfully.`);
 };
+exports.run = run;
 exports.help = {
     name: "ban",
     description: "Ban a user.",
@@ -26,3 +27,4 @@ exports.help = {
         "/ban username 1d"
     ]
 };
+//# sourceMappingURL=ban.js.map

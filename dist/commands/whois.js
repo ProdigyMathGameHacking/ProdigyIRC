@@ -8,3 +8,4 @@ exports.help = {
         "/whois username"
     ]
 };
+//# sourceMappingURL=whois.js.map

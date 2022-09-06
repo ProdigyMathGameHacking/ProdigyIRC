@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.help = exports.run = void 0;
 const privileges = require("../../privileges.json");
-exports.run = async (socket, io, commands, player, args) => {
+const run = async (socket, io, commands, player, args) => {
     const commandName = args[0];
     if (commandName) {
         const command = commands.find(command => command.name == commandName);
@@ -16,6 +16,7 @@ exports.run = async (socket, io, commands, player, args) => {
             .map(command => `${command.name} - ${command.props.help.description}`).join("\n"));
     }
 };
+exports.run = run;
 exports.help = {
     name: "help",
     description: "Opens help menu or gets info about a specific command.",
@@ -24,3 +25,4 @@ exports.help = {
         "/help commandname"
     ]
 };
+//# sourceMappingURL=help.js.map

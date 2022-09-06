@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handler = void 0;
 const privileges = require("../../privileges.json");
-exports.handler = async (socket, io, commands, player, msg) => {
+const handler = async (socket, io, commands, player, msg) => {
     msg = msg.slice(1);
     const messageArray = msg.split(/\s+/g);
     const commandName = messageArray.shift();
@@ -20,3 +20,5 @@ exports.handler = async (socket, io, commands, player, msg) => {
         }
     }
 };
+exports.handler = handler;
+//# sourceMappingURL=command.js.map

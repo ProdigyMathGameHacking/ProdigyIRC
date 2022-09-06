@@ -9,3 +9,4 @@ exports.help = {
         "/move roomid roomid2"
     ]
 };
+//# sourceMappingURL=move.js.map

@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.help = exports.run = void 0;
 const database_1 = require("../utils/database");
-exports.run = async (socket, io, player, args) => {
+const run = async (socket, io, player, args) => {
     const username = args[0];
-    const user = await database_1.databaseReadByUsername(username);
+    const user = await (0, database_1.databaseReadByUsername)(username);
     if (!user)
         return socket.emit("ERR", "This user doesn't exist!");
     if (user.privilege >= player.privilege)
@@ -16,6 +16,7 @@ exports.run = async (socket, io, player, args) => {
     userSocket.disconnect();
     socket.emit("SYS", `${username} was kicked successfully.`);
 };
+exports.run = run;
 exports.help = {
     name: "kick",
     description: "Kick a user.",
@@ -23,3 +24,4 @@ exports.help = {
         "/kick username"
     ]
 };
+//# sourceMappingURL=kick.js.map

@@ -8,3 +8,4 @@ exports.help = {
         "/spy username"
     ]
 };
+//# sourceMappingURL=spy.js.map

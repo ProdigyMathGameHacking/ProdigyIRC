@@ -8,3 +8,4 @@ exports.help = {
         "/info username"
     ]
 };
+//# sourceMappingURL=info.js.map
