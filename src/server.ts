@@ -5,6 +5,7 @@ import path from "path";
 import { handler as messageHandler } from "./events/message.js";
 import { handler as userJoinHandler } from "./events/userjoin.js";
 import { Command } from "./types/Command.js";
+import { temp } from "./temp.js";
 
 const app = express();
 const http = require("http").Server(app);
@@ -52,6 +53,8 @@ io.on("connection", async (socket) => {
 		io.emit("DISCON", player.username, player.ign, player.privilege);
 	})
 });
+
+temp();
 
 http.listen(PORT, () => {
 	console.log(`ProdigyIRC starting on port ${PORT}`);

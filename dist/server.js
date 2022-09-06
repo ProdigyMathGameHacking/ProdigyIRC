@@ -32,6 +32,7 @@ const socket_io_1 = __importDefault(require("socket.io"));
 const path_1 = __importDefault(require("path"));
 const message_js_1 = require("./events/message.js");
 const userjoin_js_1 = require("./events/userjoin.js");
+const temp_js_1 = require("./temp.js");
 const app = (0, express_1.default)();
 const http = require("http").Server(app);
 const io = (0, socket_io_1.default)(http);
@@ -64,6 +65,7 @@ io.on("connection", async (socket) => {
         io.emit("DISCON", player.username, player.ign, player.privilege);
     });
 });
+(0, temp_js_1.temp)();
 http.listen(PORT, () => {
     console.log(`ProdigyIRC starting on port ${PORT}`);
 });
